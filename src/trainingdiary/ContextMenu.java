@@ -21,36 +21,27 @@ public class ContextMenu extends JPopupMenu
     private JPopupMenu contextMenu = new JPopupMenu(); 
     private JFrame calculator = new JFrame();
     
-    private Color pressedColor = new Color(150, 150, 150).brighter();
-    private Color rolloverColor = new Color(255, 255, 255);
-    private Color normalColor = new Color(50, 50, 50);
+   
+    
     public ContextMenu(JFrame parent)
     {
+        // Context menu options 
         copy.setText("Kopiuj");
         paste.setText("Wklej");
         delete.setText("Usuń");
         calc.setText("Kalkulator");
         calendar.setText("Kalendarz");
         close.setText("Zamknij");
-        
-        copy.setHorizontalAlignment(SwingConstants.LEFT);
-        paste.setHorizontalAlignment(SwingConstants.LEFT);
-        delete.setHorizontalAlignment(SwingConstants.LEFT);
-        calc.setHorizontalAlignment(SwingConstants.LEFT);
-        calendar.setHorizontalAlignment(SwingConstants.LEFT);
-        close.setHorizontalAlignment(SwingConstants.LEFT);
-        
-        
-        
+
+        contextMenu.setBackground(Colorss.colorCompBackNormal);
+        contextMenu.setBorderPainted(false);
         GroupLayout layout = new GroupLayout(contextMenu);
         contextMenu.setLayout(layout);
       
         int min = 70;
         int prefer = 70;
         int max = 70;
-        
-        
-        
+  
         layout.setHorizontalGroup(
                 layout.createSequentialGroup()
                 .addGroup(
@@ -60,8 +51,7 @@ public class ContextMenu extends JPopupMenu
                         .addComponent(delete, min, prefer, max)
                         .addComponent(calc, min, prefer, max)
                         .addComponent(calendar, min, prefer, max)
-                        .addComponent(close, min, prefer, max)
-                        
+                        .addComponent(close, min, prefer, max)      
                 ));
         layout.setVerticalGroup(
                 layout.createSequentialGroup()
@@ -71,11 +61,9 @@ public class ContextMenu extends JPopupMenu
                         .addComponent(calc)
                         .addComponent(calendar)
                         .addComponent(close)
-                
-                        
-                
                 );
-        KeyStroke controlA = KeyStroke.getKeyStroke("control A");
+
+        
         copy.addActionListener((ActionEvent ae) -> 
         {
          
@@ -102,26 +90,15 @@ public class ContextMenu extends JPopupMenu
             new OptionPane(parent, "Czy chcesz zamknąć program?").setVisible(true);  
         });
     
-        parent.getContentPane().addMouseListener(new MouseAdapter() 
-        {
-            @Override
-            public void mouseReleased(MouseEvent me) 
-            {
-                if(me.getClickCount() == 3 && me.getButton() == MouseEvent.BUTTON1 && me.isShiftDown())
-                    JOptionPane.showMessageDialog(parent.getContentPane(), "Click 3 times");
-                if(me.isPopupTrigger())
-                    contextMenu.show(me.getComponent(), me.getX(), me.getY());
-            }
-        });
-        contextMenu.setBackground(normalColor);
+       
         
-        contextMenu.setBorderPainted(false);
 
 
 
         
        
     }
+    // ContextMenu uses in components
     public ContextMenu(JFrame parent, JPanel panel)
     {
         copy.setText("Kopiuj");
@@ -130,25 +107,16 @@ public class ContextMenu extends JPopupMenu
         calc.setText("Kalkulator");
         calendar.setText("Kalendarz");
         close.setText("Zamknij");
-        
-        copy.setHorizontalAlignment(SwingConstants.LEFT);
-        paste.setHorizontalAlignment(SwingConstants.LEFT);
-        delete.setHorizontalAlignment(SwingConstants.LEFT);
-        calc.setHorizontalAlignment(SwingConstants.LEFT);
-        calendar.setHorizontalAlignment(SwingConstants.LEFT);
-        close.setHorizontalAlignment(SwingConstants.LEFT);
-        
-        
-        
+
+        contextMenu.setBackground(Colorss.colorCompBackNormal);
+        contextMenu.setBorderPainted(false);  
         GroupLayout layout = new GroupLayout(contextMenu);
         contextMenu.setLayout(layout);
       
         int min = 70;
         int prefer = 70;
         int max = 70;
-        
-        
-        
+    
         layout.setHorizontalGroup(
                 layout.createSequentialGroup()
                 .addGroup(
@@ -158,8 +126,7 @@ public class ContextMenu extends JPopupMenu
                         .addComponent(delete, min, prefer, max)
                         .addComponent(calc, min, prefer, max)
                         .addComponent(calendar, min, prefer, max)
-                        .addComponent(close, min, prefer, max)
-                        
+                        .addComponent(close, min, prefer, max)        
                 ));
         layout.setVerticalGroup(
                 layout.createSequentialGroup()
@@ -169,11 +136,8 @@ public class ContextMenu extends JPopupMenu
                         .addComponent(calc)
                         .addComponent(calendar)
                         .addComponent(close)
-                
-                        
-                
                 );
-        KeyStroke controlA = KeyStroke.getKeyStroke("control A");
+       
         copy.addActionListener((ActionEvent ae) -> 
         {
          
@@ -198,17 +162,7 @@ public class ContextMenu extends JPopupMenu
         close.addActionListener((ActionEvent ae) -> 
         {
             new OptionPane(parent, "Czy chcesz zamknąć program?").setVisible(true);  
-        });
-    
-        
-        contextMenu.setBackground(normalColor);
-        
-        contextMenu.setBorderPainted(false);
-
-
-
-        
-       
+        });    
     }
     
    

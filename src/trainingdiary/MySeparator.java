@@ -1,5 +1,4 @@
 package trainingdiary;
-
 import javax.swing.JSeparator;
 
 

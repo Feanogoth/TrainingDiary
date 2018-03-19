@@ -96,12 +96,12 @@ public class NewTraining extends JFrame implements WindowListener
         GroupLayout layout = new GroupLayout(getContentPane());
         
         this.getContentPane().setLayout(layout);
-        this.getContentPane().setBackground(new Colors().getColorBackground());
+        this.getContentPane().setBackground(Colorss.colorBackground);
         layout.setAutoCreateGaps(true);
         layout.setAutoCreateContainerGaps(true);
        
-        panel.setBackground(new Colors().getColorBackground());
-        trainingDescriptionsPanel.setBackground(new Colors().getColorBackground());
+        panel.setBackground(Colorss.colorBackground);
+        trainingDescriptionsPanel.setBackground(Colorss.colorBackground);
         JComponent scroll = new MyScroll().makeUI(trainingDescriptionsPanel);
         scroll.setBorder(BorderFactory.createEmptyBorder());
         
@@ -416,7 +416,7 @@ public class NewTraining extends JFrame implements WindowListener
            
                 
             time.setText(getTime());
-            time.setForeground(new Colors().getColorOrnamentations());
+            time.setForeground(Colorss.colorOrnamentations);
             time.setFont(new Font("Dialog", Font.BOLD, 25));
         }
         
@@ -537,7 +537,6 @@ public class NewTraining extends JFrame implements WindowListener
     
     public void modifyDate(JSpinner spinner1)
     {
-        
         Calendar calendar = Calendar.getInstance();
         Date currentDate = calendar.getTime(); 
         calendar.add(Calendar.DAY_OF_MONTH, -200000);    
@@ -554,32 +553,24 @@ public class NewTraining extends JFrame implements WindowListener
         
         spinner1.setFont(font);
         spinner1.setFont(new Font(spinner1.getFont().getFamily(), Font.PLAIN, 18));
-        spinner1.setBackground(new Colors().getColorCompBackN());
+        spinner1.setBackground(Colorss.colorCompBackNormal);
        
         Component c = spinner1.getEditor().getComponent(0);
-        c.setForeground(new Colors().getColorForeground());
-        c.setBackground(new Colors().getColorCompBackN());
+        c.setForeground(Colorss.colorForeground);
+        c.setBackground(Colorss.colorCompBackNormal);
         c.setFocusable(false);
         
-        setButtonColors(spinner1, new Colors().getColorCompBackN());
-        spinner1.setBorder(BorderFactory.createLineBorder(new Colors().getColorCompBackN(), 4));
+        setButtonColors(spinner1, Colorss.colorCompBackNormal);
+        spinner1.setBorder(BorderFactory.createLineBorder(Colorss.colorCompBackNormal, 4));
         spinner1.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
-          
     }
     public void modifyTCount(JSpinner spinner)
     {
-        SpinnerNumberModel modelLiczb = new SpinnerNumberModel(1, 0, 5, 1);  // to co poczatkowo sie wyswietla, wartosc minimalna, wartosc maksymalna, skok
-        
-        
-        
-        
-        
-        
+        SpinnerNumberModel modelLiczb = new SpinnerNumberModel(1, 0, 5, 1);  
         spinner.setModel(modelLiczb);
-        
         spinner.setFont(font);
         spinner.setFont(new Font(spinner.getFont().getFamily(), Font.PLAIN, 18));
-        spinner.setBackground(new Colors().getColorCompBackN());
+        spinner.setBackground(Colorss.colorCompBackNormal);
 
         JComponent editor = spinner.getEditor();
         
@@ -590,11 +581,11 @@ public class NewTraining extends JFrame implements WindowListener
             
         }
         Component c = spinner.getEditor().getComponent(0);
-        c.setForeground(new Colors().getColorForeground());
-        c.setBackground(new Colors().getColorCompBackN());
+        c.setForeground(Colorss.colorForeground);
+        c.setBackground(Colorss.colorCompBackNormal);
         c.setFocusable(false);
-        setButtonColors(spinner, new Colors().getColorCompBackN());
-        spinner.setBorder(BorderFactory.createLineBorder(new Colors().getColorCompBackN(), 4));
+        setButtonColors(spinner, Colorss.colorCompBackNormal);
+        spinner.setBorder(BorderFactory.createLineBorder(Colorss.colorCompBackNormal, 4));
         spinner.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT); 
     }
         
@@ -616,71 +607,10 @@ public class NewTraining extends JFrame implements WindowListener
     }
     public void modifyComboTName(MyComboBox combo)
     {
-        
-        
-        setButtonComboColors(combo, new Colors().getColorCompBackN());
+        setButtonComboColors(combo, Colorss.colorCompBackNormal);
         combo.setEditable(true);
         combo.addItems(names);
         combo.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
-       
-//        
-//        combo.setUI(new BasicComboBoxUI() {
-//            @Override
-//            protected ComboPopup createPopup() {
-//                return new BasicComboPopup(comboBox) {
-//                    @Override
-//                    protected JScrollPane createScroller() {
-//                        JScrollPane scroller = new JScrollPane(list, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
-//                                JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-//                        scroller.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
-//                            @Override
-//                            protected JButton createDecreaseButton(int orientation) {
-//                                JButton tmp = createZeroButton();
-//                                tmp.setBackground(Color.BLACK);
-//                                tmp.setForeground(Color.white);
-//                                return tmp;
-//                            }
-//
-//                            @Override
-//                            protected JButton createIncreaseButton(int orientation) {
-//                                JButton tmp = createZeroButton();
-//                                tmp.setBackground(Color.BLACK);
-//                                tmp.setForeground(Color.white);
-//                                return tmp;
-//                            }
-//
-//                            @Override
-//                            public Dimension getPreferredSize(JComponent c) {
-//                                return new Dimension(10, super.getPreferredSize(c).height);
-//                            }
-//
-//                            private JButton createZeroButton() {
-//                                return new JButton() {
-//                                    @Override
-//                                    public Dimension getMinimumSize() {
-//                                        return new Dimension(new Dimension(0, 0));
-//                                    }
-//
-//                                    @Override
-//                                    public Dimension getPreferredSize() {
-//                                        return new Dimension(new Dimension(0, 0));
-//                                    }
-//
-//                                    @Override
-//                                    public Dimension getMaximumSize() {
-//                                        return new Dimension(new Dimension(0, 0));
-//                                    }
-//                                };
-//                            }
-//                        });
-//                        return scroller;
-//                    }
-//                };
-//            }
-//        });
-        
-        
-        
     }
     
     private static void setButtonComboColors(MyComboBox combo, Color background)
@@ -691,7 +621,6 @@ public class NewTraining extends JFrame implements WindowListener
             Component c = combo.getComponent(i);
             if (c instanceof JButton)
             {
-                
                 c.setBackground(background.brighter());
                 ((JButton) c).setBorder(BorderFactory.createSoftBevelBorder(0));
             }
@@ -701,19 +630,18 @@ public class NewTraining extends JFrame implements WindowListener
     
     public void modifyComboTPlace(MyComboBox combo)
     {
-        setButtonComboColors(combo, new Colors().getColorCompBackN());
+        setButtonComboColors(combo, Colorss.colorCompBackNormal);
         combo.setEditable(true);
         combo.addItems(places);
         combo.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
     }
     public void modifyTextCampPlace(JTextField text)
     {
-        
         text.setFont(font);
         text.setFont(new Font(text.getFont().getFamily(), Font.PLAIN, 18));
-        text.setBackground(new Colors().getColorCompBackN());
+        text.setBackground(Colorss.colorCompBackNormal);
         text.setForeground(new Color(130, 130, 130).darker());
-        text.setBorder(BorderFactory.createLineBorder(new Colors().getColorCompBackN(), 4));
+        text.setBorder(BorderFactory.createLineBorder(Colorss.colorCompBackNormal, 4));
         text.setText("Wpisz miejscowość zgrupowania");
         text.setHorizontalAlignment(JTextField.LEFT);
         text.addFocusListener(new FocusAdapter() 
@@ -736,7 +664,7 @@ public class NewTraining extends JFrame implements WindowListener
         if(text.getText().equals("Wpisz miejscowość zgrupowania"))
         {
             text.setText("");
-            text.setForeground(new Colors().getColorForeground());
+            text.setForeground(Colorss.colorForeground);
         }
     }
     public void textIsDisActive(JTextField text)

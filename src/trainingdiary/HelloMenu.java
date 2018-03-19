@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package trainingdiary;
 import java.awt.Color;
 import java.awt.Font;
@@ -12,18 +7,10 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.UIManager;
 
-
-/**
- *
- * @author szyos
- */
-public class HelloMenu extends javax.swing.JFrame implements WindowListener{
-
-    /**
-     * Creates new form HelloMenu
-     */
-    public HelloMenu() {
-       
+public class HelloMenu extends javax.swing.JFrame implements WindowListener
+{
+    public HelloMenu() 
+    {
         initComponents();
         newTrainingButton.setFocusPainted(false);
         newTrainingButton.setContentAreaFilled(false);
@@ -309,7 +296,7 @@ public class HelloMenu extends javax.swing.JFrame implements WindowListener{
 
     private void summaryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_summaryButtonActionPerformed
        // new Settings().setVisible(true);
-       new Colors().setVisible(true);
+//       new Colors().setVisible(true);
         dispose();
     }//GEN-LAST:event_summaryButtonActionPerformed
 

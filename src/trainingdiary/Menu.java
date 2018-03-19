@@ -1,28 +1,20 @@
 package trainingdiary;
-import java.awt.GridLayout;
 import javax.swing.*;
 import java.awt.event.*;
-import java.beans.PropertyChangeListener;
-import javax.swing.event.AncestorEvent;
-import javax.swing.event.AncestorListener;
-
 
 public class Menu 
 {
     private JMenuBar menuBar = new JMenuBar();
     private boolean flagTextArea = false;
-    
     private JMenu  menuCalculator = new JMenu("Kalkulator");
-    
     private JRadioButtonMenuItem radioButton = new JRadioButtonMenuItem("Radio button");
     private JCheckBoxMenuItem readOnly = new JCheckBoxMenuItem("Tylko do odczytu");
     private JTextArea textArea = new JTextArea();
     private String beforeChangeTextArea = "";
-    
     private JPopupMenu contextMenu = new JPopupMenu(); 
-    public Menu(){}
     private JFrame calculator = new JFrame();
     
+    public Menu(){}
     
     public Menu(JFrame parent)
     {
@@ -33,7 +25,7 @@ public class Menu
        JMenu menuHelp = menuBar.add(new JMenu("Pomoc"));
        JMenu menuSettings = menuBar.add(new JMenu("Ustawienia"));
        
-       
+       //menuFile items
        JMenuItem subMenu = menuFile.add(new JMenuItem("Nowy trening"));
        menuFile.add(new JMenuItem("Otwórz trening"));
        menuFile.addSeparator();
@@ -45,11 +37,11 @@ public class Menu
        menuFile.add(new JMenuItem("Wyjdź"));
        menuFile.setMnemonic('P');
        
-       
+       //menuMenu items
        JMenuItem itemStart = new JMenuItem("Otwórz MENU");
        menuMenu.add(itemStart);
        
-       
+       //menuTools items
        JMenuItem itemCalendar = new JMenuItem("Kalendarz");
        JMenuItem itemCalculator = new JMenuItem("Kalkulator tradycyjny");
        JMenuItem itemCalculatorRunner = new JMenuItem("Kalkulator biegacza");
@@ -60,7 +52,7 @@ public class Menu
        menuTools.add(itemTmpNote);
        menuTools.add(menuCalculator);
        
-       
+       //menuHelp items
        JMenuItem itemDictionary = new JMenuItem("Słowniczek biegacza");
        JMenuItem itemTutorial = new JMenuItem("Samouczek");
        JMenuItem itemQuestion = new JMenuItem("Zgłoś problem/uwagi");
@@ -68,6 +60,7 @@ public class Menu
        menuHelp.add(itemTutorial);
        menuHelp.add(itemQuestion);
        
+       //menuSettings items
        JMenuItem itemFullScreen = new JMenuItem("Tryb pełnoekranowy");
        JMenuItem itemFullScreenExit = new JMenuItem("Tryb okna");
        JMenuItem itemSettings = new JMenuItem("Panel ustawień");
@@ -76,25 +69,26 @@ public class Menu
        menuSettings.add(itemSettings);
        
        
-       
-       
-       
-        itemCalculator.addActionListener((ActionEvent ae) -> 
-        {
-            new Calc(calculator).setVisible(true);
+       //items events
+       itemCalculator.addActionListener((ActionEvent ae) -> 
+       {
+           new Calc(calculator).setVisible(true);
        });
-       
+       itemStart.addActionListener((ActionEvent ae) -> 
+       {
+           new HelloMenu().setVisible(true);
+       });
+       subMenu.addActionListener((ActionEvent ae)->
+        {
+            System.out.println("Tu jest kod, który tworzy nowy plik");
+        });
        
        
        
       
        
        
-       
-      
-//       menuHelp.add(radioButton);
-//       menuSettings.add(readOnly);
-       
+
        readOnly.addActionListener((ActionEvent ae)->{
             if(readOnly.isSelected())
                 actionSave.setEnabled(false);
@@ -131,65 +125,12 @@ public class Menu
              }
         });
        
-       subMenu.addActionListener((ActionEvent ae)->
-        {
-            System.out.println("Tu jest kod, który tworzy nowy plik");
-        });
-       
-       
-       
-       
-       
-//       contextMenu.add(new JMenuItem(new AbstractAction("Kalkulator") {
-//        @Override
-//        public void actionPerformed(ActionEvent ae) {
-//            new Calculator(calculator).setVisible(true);   
-//            }
-//            }));
-//       contextMenu.add(new JMenuItem(new AbstractAction("Zamknij") {
-//        @Override
-//        public void actionPerformed(ActionEvent ae) {
-//            int opcja = JOptionPane.showConfirmDialog(parent.getContentPane(), "Czy na pewno chcesz zamknąć?");
-//            if (opcja == 0)
-//            {
-//                parent.dispose();  
-//                calculator.dispose();
-//            }   
-//            }
-//    }));
-//    contextMenu.add(new JMenuItem("Copy"));
-//    contextMenu.add(new JMenuItem("paste"));
-//    contextMenu.add(new JMenuItem("delete"));
-//    textArea.addMouseListener(new MouseAdapter() 
-//    {
-//        @Override
-//            public void mouseReleased(MouseEvent me) 
-//            {
-//                if(me.getClickCount() == 3 && me.getButton() == MouseEvent.BUTTON1 && me.isShiftDown())
-//                    JOptionPane.showMessageDialog(parent.getContentPane(), "Click 3 times");
-//                if(me.isPopupTrigger())
-//                    contextMenu.show(me.getComponent(), me.getX(), me.getY());
-//            }
-//    });
-       
-       
        
     }
     
-   
-    
-       
-    
-    
-    
-    
-    
-    
-    
-    
+
     private boolean czyToAscii(char zn)
     {
-        
         for(int i =0; i < 255; i++)
             if(zn == i)
                 return true;

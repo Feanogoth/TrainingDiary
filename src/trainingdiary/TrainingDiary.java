@@ -1,17 +1,9 @@
-//Test gita
-
 package trainingdiary;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import javax.imageio.ImageIO;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 
 public class TrainingDiary extends JFrame implements WindowListener
 {
@@ -30,7 +22,7 @@ public class TrainingDiary extends JFrame implements WindowListener
               contextMenu.add(new JMenuItem(new AbstractAction("Kalkulator") {
         @Override
         public void actionPerformed(ActionEvent ae) {
-            new Calculator(calculator).setVisible(true);   
+            new Calc(calculator).setVisible(true);   
             }
             }));
        contextMenu.add(new JMenuItem(new AbstractAction("Zamknij") {
@@ -65,6 +57,7 @@ public class TrainingDiary extends JFrame implements WindowListener
         panel.add(full);
         panel.add(full2);
         panel.add(test);
+        
         test.setPreferredSize(new Dimension(300, 300));
         full.addActionListener((ActionEvent ae) -> {
          device.setFullScreenWindow(this);
@@ -90,7 +83,7 @@ public class TrainingDiary extends JFrame implements WindowListener
         
         test.addActionListener((ActionEvent ae) -> 
         {
-            Color color = new Colors().getColorBackground();
+            Color color = Colorss.colorBackground;
             
             panel.setBackground(color);
         });
@@ -111,8 +104,15 @@ public class TrainingDiary extends JFrame implements WindowListener
 
         this.getContentPane().add(panel);
         new ContextMenu(this);
-        new Menu(this);
         
+//        new Menu(this);
+        
+        
+        
+        textArea.addMouseListener(new MouseAdapter() 
+        {
+            
+        });
     }
     
     
@@ -147,33 +147,11 @@ public class TrainingDiary extends JFrame implements WindowListener
              System.out.println(ex.getMessage());
         } 
     }
-    
-   
-//    public JPanel getPanel() {
-//        JPanel panel = new JPanel();
-//        JLabel label = new JLabel("Java Technology Dive Log");
-//        ImageIcon image = null;
-//        try {
-//            image = new ImageIcon(ImageIO.read(
-//                    new URL("http://i.imgur.com/6mbHZRU.png")));
-//        } catch(MalformedURLException mue) {
-//            mue.printStackTrace();
-//        } catch(IOException ioe) {
-//            ioe.printStackTrace();
-//        } 
-//        JButton  tt = new MyButton("dsadsdd");
-//        panel.add(tt);
-//        label.setIcon(image);
-//        panel.add(label);
-//
-//        return panel;
-//    }
-    
+
     
     public static void main(String[] args) 
     {
         new HelloMenu().setVisible(true);
-      // new TrainingDiary().setVisible(true);
     }
 
     
@@ -181,42 +159,12 @@ public class TrainingDiary extends JFrame implements WindowListener
     @Override
     public void windowOpened(WindowEvent we) 
     {
-        //JOptionPane.showMessageDialog(rootPane, "Witaj!");
     }
 
     @Override
     public void windowClosing(WindowEvent we)    
     {
-//       
-//        button.setFocusPainted(false);
-//        button.setContentAreaFilled(false);
-//        button.setOpaque(true);
-        
-//        UIManager.put("OptionPane.background", new Color(102, 102, 102));
-//        UIManager.put("Panel.background", new Color(102, 102, 102));
-//        UIManager.put("OptionPane.cancelButtonText", "Anuluj");
-//        UIManager.put("OptionPane.okButtonText", "Tak");
-//        UIManager.put("Button.okButtonTextSize", 12);
-//        UIManager.put("Button.buttonAreaBorder", BorderFactory.createSoftBevelBorder(0));
-//        UIManager.put("OptionPane.yesButtonText", "TAK");
-//        UIManager.put("OptionPane.noButtonText", "NIE");
-//        UIManager.put("OptionPane.buttonFont", new Font("Tahoma", Font.BOLD, 14));
-//        UIManager.put("OptionPane.font", new Font("Tahoma", Font.BOLD, 14));
-//        
-//        UIManager.put("Button.background", new Color(45, 45, 45));
-//        UIManager.put("Button.foreground", new Color(139, 90, 60));
-//        int opcja = JOptionPane.showConfirmDialog(rootPane, "Czy na pewno chcesz wyjść z aplikacji?", "Wybierz opcję",
-//                        JOptionPane.YES_NO_OPTION);
-//        
-//        
-//        
-//        
-//        
-//       
-        
        new OptionPane(this, "Czy chcesz zamknąć program?").setVisible(true);
-       
-       
     }
 
     @Override
@@ -228,37 +176,23 @@ public class TrainingDiary extends JFrame implements WindowListener
     @Override
     public void windowIconified(WindowEvent we)  
     {
-        System.out.println("instrukcja gdy zminimalizowane");
     }
 
     @Override
     public void windowDeiconified(WindowEvent we)  
     {
-        System.out.println("instrukcja gdy zmaksymalizowany");
     }
 
     @Override
     public void windowActivated(WindowEvent we)  
     {
-        System.out.println("instrukcje gdy okno aktywne");
     }
 
     @Override
     public void windowDeactivated(WindowEvent we) 
     {
-        System.out.println("Instrukcje gdy okno nie jest aktywne");
     }
     
 }
 
-
-
-
-
-//Container kontener = this.getContentPane();  //robimy kontener i do niego dodajemy komponenty zamist prosto do szybki 
-//kontener.setLayout(null);
-//kontener.add(centrum, BorderLayout.CENTER);
-
-//panel1.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);  // zeby przyciski nie znikaly tylko zmienialy polozenie jak zmieniamy wielkosc okna
-//JPanel panel1 = new JPanel(new FlowLayout(FlowLayout.CENTER));
 

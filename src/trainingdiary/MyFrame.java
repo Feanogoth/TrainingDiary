@@ -1,9 +1,6 @@
 package trainingdiary;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 
 public class MyFrame extends JFrame
@@ -18,20 +15,13 @@ public class MyFrame extends JFrame
 //            System.out.println(ex.getMessage());
 //        }
 //            SwingUtilities.updateComponentTreeUI(this);   
-
+        new Menu(parent);
         parent.setTitle(nazwa);
-        
         int height = Toolkit.getDefaultToolkit().getScreenSize().height;
         int width = Toolkit.getDefaultToolkit().getScreenSize().width;
         parent.setBounds(width/4, height/4, width/2, height/2);
         parent.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        parent.setBackground(new Colors().getColorBackground());
-        
-        parent.setResizable(true);
-                
-        
+        parent.setBackground(Colorss.colorBackground);
+        parent.setResizable(true);  
     }
-        
-
-   
 }

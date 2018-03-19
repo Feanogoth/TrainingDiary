@@ -1135,47 +1135,27 @@ public class Calc extends JDialog {
     }//GEN-LAST:event_rootActionPerformed
 
     private void signActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signActionPerformed
-         
-        
         String tmp = textArea.getText();
-        
-        
         try
         {
             if(!textArea.getText().equals("") || Double.parseDouble(textArea.getText()) == 0)
             {
                 tmp = "-"+ textArea.getText();
-
-
                 textArea.setText(tmp);
-
-
             }
             if(textArea.getText().contains("--"))
             {
                 textArea.select(textArea.getText().indexOf("--",0), textArea.getText().indexOf("--")+"--".length());
                 textArea.replaceSelection("");
-               // textArea.setText(tmp);
             }
         }
         catch(NumberFormatException e)
         {
             System.out.println(e.getMessage());
         }
-        
-        
-        
-//        if(!textArea.getText().equals(""))
-//        {
-//        takein = textArea.getText() + ".";
-//        textArea.setText(takein); 
-//        }
     }//GEN-LAST:event_signActionPerformed
 
     private void cButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cButtonActionPerformed
-        
-        
-       
         textArea.setText("0");
         textArea1.setText("");
         firstNumber = 0;
@@ -1483,21 +1463,7 @@ public class Calc extends JDialog {
        
         
         /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new Calc().setVisible(true);
-//            }
-//        });
-        //</editor-fold>
        
-
-        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new Calc().setVisible(true);
-//            }
-//        });
-    
     
     
     }
